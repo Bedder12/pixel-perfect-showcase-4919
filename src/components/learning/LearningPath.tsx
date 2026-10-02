@@ -7,17 +7,17 @@ const W = 400, STEP = 132, TOP = 70;
 const xs = [0.3, 0.68, 0.36, 0.7];
 
 export function LearningPath({ nodes }: { nodes: { name: string; state: NodeState; progress: number }[] }) {
-  const pts = nodes.map((_, i) => ({ x: xs[i % xs.length] * W, y: TOP + i * STEP }));
+  const pts = nodes.map((_, i) => ({ x: xs[i % xs.length]! * W, y: TOP + i * STEP }));
   const d = pts.reduce((acc, p, i) => {
     if (i === 0) return `M ${p.x} ${p.y}`;
-    const prev = pts[i - 1], my = (prev.y + p.y) / 2;
+    const prev = pts[i - 1]!, my = (prev.y + p.y) / 2;
     return `${acc} C ${prev.x} ${my}, ${p.x} ${my}, ${p.x} ${p.y}`;
   }, "");
   const doneIdx = nodes.findIndex((n) => n.state === "current");
   const doneLen = doneIdx > 0 ? pts.slice(0, doneIdx + 1) : [];
   const dDone = doneLen.reduce((acc, p, i) => {
     if (i === 0) return `M ${p.x} ${p.y}`;
-    const prev = doneLen[i - 1], my = (prev.y + p.y) / 2;
+    const prev = doneLen[i - 1]!, my = (prev.y + p.y) / 2;
     return `${acc} C ${prev.x} ${my}, ${p.x} ${my}, ${p.x} ${p.y}`;
   }, "");
   const H = TOP + (nodes.length - 1) * STEP + 90;
@@ -29,7 +29,7 @@ export function LearningPath({ nodes }: { nodes: { name: string; state: NodeStat
         <path d={dDone} fill="none" stroke="var(--primary)" strokeWidth="6" strokeLinecap="round" opacity=".35" />
       </svg>
       {nodes.map((n, i) => (
-        <LearningPathNode key={n.name} {...n} left={(pts[i].x / W) * 100} top={(pts[i].y / H) * 100} labelSide={pts[i].x / W < 0.5 ? "right" : "left"} />
+        <LearningPathNode key={n.name} {...n} left={(pts[i]!.x / W) * 100} top={(pts[i]!.y / H) * 100} labelSide={pts[i]!.x / W < 0.5 ? "right" : "left"} />
       ))}
     </div>
   );

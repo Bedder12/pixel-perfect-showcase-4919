@@ -46,7 +46,7 @@ function Question() {
       <NightRoadScene className="w-full h-auto my-6" />
       <div className="space-y-3">
         {question.options.map((o, i) => (
-          <AnswerOption key={i} letter={"ABCD"[i]} text={o} state={stateFor(i)} onClick={() => mode === "Svara" && setSelected(i)} />
+          <AnswerOption key={i} letter={"ABCD"[i] ?? ""} text={o} state={stateFor(i)} onClick={() => mode === "Svara" && setSelected(i)} />
         ))}
       </div>
       <button className="mt-5 mx-auto flex items-center gap-2 text-sm font-bold text-muted-foreground"><Flag className="size-4" />Markera fråga</button>

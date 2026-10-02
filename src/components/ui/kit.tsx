@@ -69,7 +69,7 @@ export function BottomNavigation() {
 }
 
 /* ---------- Buttons ---------- */
-type BtnProps = ButtonHTMLAttributes<HTMLButtonElement> & { to?: string; full?: boolean };
+type BtnProps = ButtonHTMLAttributes<HTMLButtonElement> & { to?: string | undefined; full?: boolean };
 function BtnBase({ to, className, children, ...rest }: BtnProps) {
   if (to) return <Link to={to} className={className}>{children}</Link>;
   return <button className={className} {...rest}>{children}</button>;
