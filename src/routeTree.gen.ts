@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProfilRouteImport } from './routes/profil'
+import { Route as TeoribokRouteImport } from './routes/teoribok'
+import { Route as PluggaIndexRouteImport } from './routes/plugga.index'
+import { Route as PluggaAmneRouteImport } from './routes/plugga.amne'
+import { Route as PluggaLektionRouteImport } from './routes/plugga.lektion'
+import { Route as PluggaStigRouteImport } from './routes/plugga.stig'
+import { Route as ProvIndexRouteImport } from './routes/prov.index'
+import { Route as ProvFragaRouteImport } from './routes/prov.fraga'
+import { Route as ProvResultatRouteImport } from './routes/prov.resultat'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeoribokRoute = TeoribokRouteImport.update({
+  id: '/teoribok',
+  path: '/teoribok',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PluggaIndexRoute = PluggaIndexRouteImport.update({
+  id: '/plugga/',
+  path: '/plugga/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PluggaAmneRoute = PluggaAmneRouteImport.update({
+  id: '/plugga/amne',
+  path: '/plugga/amne',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PluggaLektionRoute = PluggaLektionRouteImport.update({
+  id: '/plugga/lektion',
+  path: '/plugga/lektion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PluggaStigRoute = PluggaStigRouteImport.update({
+  id: '/plugga/stig',
+  path: '/plugga/stig',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProvIndexRoute = ProvIndexRouteImport.update({
+  id: '/prov/',
+  path: '/prov/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProvFragaRoute = ProvFragaRouteImport.update({
+  id: '/prov/fraga',
+  path: '/prov/fraga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProvResultatRoute = ProvResultatRouteImport.update({
+  id: '/prov/resultat',
+  path: '/prov/resultat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/profil': typeof ProfilRoute
+  '/teoribok': typeof TeoribokRoute
+  '/plugga/amne': typeof PluggaAmneRoute
+  '/plugga/lektion': typeof PluggaLektionRoute
+  '/plugga/stig': typeof PluggaStigRoute
+  '/prov/fraga': typeof ProvFragaRoute
+  '/prov/resultat': typeof ProvResultatRoute
+  '/plugga/': typeof PluggaIndexRoute
+  '/prov/': typeof ProvIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/profil': typeof ProfilRoute
+  '/teoribok': typeof TeoribokRoute
+  '/plugga/amne': typeof PluggaAmneRoute
+  '/plugga/lektion': typeof PluggaLektionRoute
+  '/plugga/stig': typeof PluggaStigRoute
+  '/prov/fraga': typeof ProvFragaRoute
+  '/prov/resultat': typeof ProvResultatRoute
+  '/plugga': typeof PluggaIndexRoute
+  '/prov': typeof ProvIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/profil': typeof ProfilRoute
+  '/teoribok': typeof TeoribokRoute
+  '/plugga/amne': typeof PluggaAmneRoute
+  '/plugga/lektion': typeof PluggaLektionRoute
+  '/plugga/stig': typeof PluggaStigRoute
+  '/prov/fraga': typeof ProvFragaRoute
+  '/prov/resultat': typeof ProvResultatRoute
+  '/plugga/': typeof PluggaIndexRoute
+  '/prov/': typeof ProvIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/profil'
+    | '/teoribok'
+    | '/plugga/amne'
+    | '/plugga/lektion'
+    | '/plugga/stig'
+    | '/prov/fraga'
+    | '/prov/resultat'
+    | '/plugga/'
+    | '/prov/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/profil'
+    | '/teoribok'
+    | '/plugga/amne'
+    | '/plugga/lektion'
+    | '/plugga/stig'
+    | '/prov/fraga'
+    | '/prov/resultat'
+    | '/plugga'
+    | '/prov'
+  id:
+    | '__root__'
+    | '/'
+    | '/profil'
+    | '/teoribok'
+    | '/plugga/amne'
+    | '/plugga/lektion'
+    | '/plugga/stig'
+    | '/prov/fraga'
+    | '/prov/resultat'
+    | '/plugga/'
+    | '/prov/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProfilRoute: typeof ProfilRoute
+  TeoribokRoute: typeof TeoribokRoute
+  PluggaAmneRoute: typeof PluggaAmneRoute
+  PluggaLektionRoute: typeof PluggaLektionRoute
+  PluggaStigRoute: typeof PluggaStigRoute
+  ProvFragaRoute: typeof ProvFragaRoute
+  ProvResultatRoute: typeof ProvResultatRoute
+  PluggaIndexRoute: typeof PluggaIndexRoute
+  ProvIndexRoute: typeof ProvIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teoribok': {
+      id: '/teoribok'
+      path: '/teoribok'
+      fullPath: '/teoribok'
+      preLoaderRoute: typeof TeoribokRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plugga/': {
+      id: '/plugga/'
+      path: '/plugga'
+      fullPath: '/plugga/'
+      preLoaderRoute: typeof PluggaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plugga/amne': {
+      id: '/plugga/amne'
+      path: '/plugga/amne'
+      fullPath: '/plugga/amne'
+      preLoaderRoute: typeof PluggaAmneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plugga/lektion': {
+      id: '/plugga/lektion'
+      path: '/plugga/lektion'
+      fullPath: '/plugga/lektion'
+      preLoaderRoute: typeof PluggaLektionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plugga/stig': {
+      id: '/plugga/stig'
+      path: '/plugga/stig'
+      fullPath: '/plugga/stig'
+      preLoaderRoute: typeof PluggaStigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prov/': {
+      id: '/prov/'
+      path: '/prov'
+      fullPath: '/prov/'
+      preLoaderRoute: typeof ProvIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prov/fraga': {
+      id: '/prov/fraga'
+      path: '/prov/fraga'
+      fullPath: '/prov/fraga'
+      preLoaderRoute: typeof ProvFragaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prov/resultat': {
+      id: '/prov/resultat'
+      path: '/prov/resultat'
+      fullPath: '/prov/resultat'
+      preLoaderRoute: typeof ProvResultatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProfilRoute: ProfilRoute,
+  TeoribokRoute: TeoribokRoute,
+  PluggaAmneRoute: PluggaAmneRoute,
+  PluggaLektionRoute: PluggaLektionRoute,
+  PluggaStigRoute: PluggaStigRoute,
+  ProvFragaRoute: ProvFragaRoute,
+  ProvResultatRoute: ProvResultatRoute,
+  PluggaIndexRoute: PluggaIndexRoute,
+  ProvIndexRoute: ProvIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
