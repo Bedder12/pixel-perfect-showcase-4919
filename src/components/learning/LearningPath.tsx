@@ -26,7 +26,8 @@ export function LearningPath({ nodes }: { nodes: { name: string; state: NodeStat
     <div className="relative w-full" style={{ aspectRatio: `${W} / ${H}` }}>
       <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 w-full h-full" aria-hidden>
         <path d={d} fill="none" stroke="var(--border)" strokeWidth="10" strokeLinecap="round" strokeDasharray="1 18" />
-        <path d={dDone} fill="none" stroke="var(--primary)" strokeWidth="6" strokeLinecap="round" opacity=".35" />
+        <path d={dDone} fill="none" stroke="var(--primary-soft)" strokeWidth="14" strokeLinecap="round" />
+        <path d={dDone} fill="none" stroke="var(--primary)" strokeWidth="4" strokeLinecap="round" />
       </svg>
       {nodes.map((n, i) => (
         <LearningPathNode key={n.name} {...n} left={(pts[i]!.x / W) * 100} top={(pts[i]!.y / H) * 100} labelSide={pts[i]!.x / W < 0.5 ? "right" : "left"} />
